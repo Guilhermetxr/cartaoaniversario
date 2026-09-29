@@ -1,0 +1,2 @@
+- [x] Criar site de convite do Kawan no estilo preto e branco da referência, com animações e informações do evento.
+- [x] Verificar o site e solicitar publicação.
