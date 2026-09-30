@@ -90,6 +90,24 @@
 .details h2 { margin: 20px 0 5px; font-size: clamp(49px, 9vw, 105px); line-height: .95; font-weight: 900; letter-spacing: 0; }.period { color: var(--muted-foreground); }.details-heading p { font-size: 16px; margin: 15px 0 0; color: var(--muted); }
 .notes-list { border-top: 1px solid var(--background); }.note { display: grid; grid-template-columns: 50px 1fr 40px; gap: 10px; align-items: start; border-bottom: 1px solid var(--border); padding: 29px 0 32px; }.note-number { padding-top: 5px; font-size: 12px; font-weight: 800; color: var(--muted-foreground); }.note h3 { margin: 0 0 8px; font-size: clamp(22px, 3vw, 32px); line-height: 1.15; font-weight: 900; text-transform: uppercase; }.note p { margin: 0; font-size: 16px; line-height: 1.5; max-width: 500px; }.note-icon { margin-top: 1px; justify-self: end; }
 .location-block { margin: 76px 0 76px; }.location-label { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 11px; letter-spacing: 2px; }.location-block h3 { margin: 13px 0 26px; font-size: clamp(36px, 7vw, 72px); line-height: 1; font-weight: 900; }.location-block .inline-flex { height: 56px; padding: 0 25px; font-size: 12px; letter-spacing: 1px; }.location-block .inline-flex svg { width: 18px; height: 18px; transition: transform .2s; }.location-block .inline-flex:hover svg { transform: translate(3px,-3px); }
+.rsvp-block { position: relative; isolation: isolate; overflow: hidden; margin-bottom: 60px; padding: 55px 24px 36px; background: var(--background); color: var(--foreground); text-align: center; }
+.rsvp-block::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .28; background-image: radial-gradient(var(--muted-foreground) .7px, transparent .9px); background-size: 7px 7px; mask-image: linear-gradient(transparent, black); }
+.rsvp-block .eyebrow { font-size: 10px; letter-spacing: 2px; color: var(--metal); }
+.rsvp-block h2 { margin: 20px 0; font-size: clamp(36px, 7vw, 76px); line-height: 1; }
+.rsvp-description { max-width: 320px; margin: 0 auto 28px; font-size: 15px; line-height: 1.6; color: var(--metal); }
+.rsvp-button { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 12px; max-width: 100%; min-height: 58px; padding: 16px 22px; background: var(--foreground); color: var(--background); font-size: 12px; font-weight: 800; letter-spacing: .6px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.rsvp-button svg { flex-shrink: 0; }
+.rsvp-button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 25%, oklch(0.7 0 0 / .35) 50%, transparent 75%); transform: translateX(-150%); animation: rsvp-shine 5s 1s ease-in-out infinite; pointer-events: none; }
+.rsvp-button:hover { transform: translateY(-3px); box-shadow: 0 8px 0 oklch(0.98 0 0 / .15); }
+.rsvp-button:focus-visible { outline: 2px solid var(--foreground); outline-offset: 5px; }
+.rsvp-button:active { transform: translateY(0); }
+.rsvp-hint { margin: 17px 0 0; font-size: 11px; color: var(--metal); line-height: 1.5; }
+.rsvp-stars { display: flex; justify-content: center; align-items: center; gap: 18px; margin-bottom: 24px; }
+.rsvp-stars svg { width: 18px; height: 18px; fill: currentColor; animation: rsvp-twinkle 3.5s ease-in-out infinite; }
+.rsvp-stars svg:nth-child(2) { width: 30px; height: 30px; animation-delay: .4s; }
+.rsvp-stars svg:nth-child(3) { animation-delay: .8s; }
+@keyframes rsvp-shine { 0%, 65% { transform: translateX(-150%); } 100% { transform: translateX(150%); } }
+@keyframes rsvp-twinkle { 0%, 100% { transform: translateY(0) rotate(-8deg) scale(.9); opacity: .6; } 50% { transform: translateY(-6px) rotate(8deg) scale(1.1); opacity: 1; } }
 .details-footer { border-top: 1px solid var(--background); padding-top: 18px; display: flex; justify-content: space-between; gap: 15px; font-size: 11px; font-weight: 800; letter-spacing: 1px; }.details-footer span:last-child { display: inline-flex; align-items: center; gap: 6px; }
 @keyframes ribbon-drop { to { transform: translateY(0); } }
 @keyframes stage-in { from { opacity: 0; transform: translateY(30px) scale(.92); } to { opacity: 1; transform: translateY(0) scale(1); } }

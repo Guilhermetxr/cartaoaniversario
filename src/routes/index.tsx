@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, Clock3, MapPin, Waves, Wine, Goal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Clock3, MapPin, Waves, Wine, Goal, MessageCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const MAP_URL = "https://maps.app.goo.gl/Fdo83HPnoNjBn3ic8?g_st=iw";
+const RSVP_URL = `https://wa.me/5598970224008?text=${encodeURIComponent("Oi! Quero confirmar minha presença no aniversário de 22 anos do Kawan, dia 01 de novembro. Tô dentro! 🎉")}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,6 +77,18 @@ function Index() {
             <h3>TE ESPERO LÁ.</h3>
             <Button asChild variant="invitation" size="lg"><a href={MAP_URL} target="_blank" rel="noopener noreferrer">ABRIR LOCALIZAÇÃO <ArrowUpRight aria-hidden="true" /></a></Button>
           </div>
+          <section className="rsvp-block" aria-labelledby="rsvp-title">
+            <div className="rsvp-stars" aria-hidden="true"><Star /><Star /><Star /></div>
+            <p className="eyebrow">SÓ FALTA VOCÊ</p>
+            <h2 id="rsvp-title">BORA PRA<br />ESSA FESTA?</h2>
+            <p className="rsvp-description">Confirma tua presença e vem comemorar comigo!</p>
+            <a className="rsvp-button" href={RSVP_URL} target="_blank" rel="noopener noreferrer">
+              <MessageCircle size={21} aria-hidden="true" />
+              <span>CONFIRMAR PRESENÇA</span>
+              <ArrowUpRight size={19} aria-hidden="true" />
+            </a>
+            <p className="rsvp-hint">É só enviar a mensagem no WhatsApp.</p>
+          </section>
           <div className="details-footer"><span>KAWAN · 22 ANOS</span><span><Clock3 size={13} aria-hidden="true" /> 01 NOV · 13:00</span></div>
         </div>
       </section>
